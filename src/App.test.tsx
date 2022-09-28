@@ -24,17 +24,28 @@ describe("Form Check", () => {
     render(<App />);
     const firstInput =  screen.getByTestId("firstNumber");
     user.type(firstInput, "10");
-
     const secondInput =  screen.getByTestId("secondNumber");
     user.type(secondInput, "2");
-
     const thirdInput =  screen.getByTestId("thirdNumber");
     user.type(thirdInput, "5");
-
     user.click(screen.getByTestId('calculateSum'));
+    expect(screen.getByTestId('error')).toBeInTheDocument();
 
-    expect(screen.getByTestId('result')).toHaveTextContent('0');
+  });
 
+  it("Do Sum and Check", async () => {
+    render(<App />);
+    const firstInput =  screen.getByTestId("firstNumber");
+    user.type(firstInput, "10");
+    user.click(screen.getByTestId('firstCheck'));
+    const secondInput =  screen.getByTestId("secondNumber");
+    user.type(secondInput, "2");
+    user.click(screen.getByTestId('secondCheck'));
+    const thirdInput =  screen.getByTestId("thirdNumber");
+    user.type(thirdInput, "5");
+    user.click(screen.getByTestId('thirdCheck'));
+    user.click(screen.getByTestId('calculateSum'));
+    expect(screen.getByTestId('result')).toHaveTextContent('17');
   });
 
 

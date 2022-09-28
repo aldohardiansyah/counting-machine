@@ -16,7 +16,7 @@ function App() {
   const calculateSum = () => {
     setError("");
     if (firstCheck && secondCheck && thirdCheck) {
-      setResult(firstNumber + secondNumber + thirdNumber);
+      setResult(parseInt(firstNumber) + parseInt(secondNumber) + parseInt(thirdNumber));
     } else if (firstCheck && secondCheck) {
       setResult(firstNumber + secondNumber);
     } else if (secondCheck && thirdCheck) {
@@ -38,7 +38,7 @@ function App() {
     } else if (firstCheck && thirdCheck) {
       setResult(firstNumber - thirdNumber);
     } else {
-      setError("You must chek min. 2 input");
+      setError("You must chek min. 2 input of Number");
     }
   };
   const calculateTimes = () => {
@@ -52,7 +52,7 @@ function App() {
     } else if (firstCheck && thirdCheck) {
       setResult(firstNumber * thirdNumber);
     } else {
-      setError("You must chek min. 2 input");
+      setError("You must chek min. 2 input of Number");
     }
   };
   const calculateDivide = () => {
@@ -66,7 +66,7 @@ function App() {
     } else if (firstCheck && thirdCheck) {
       setResult(firstNumber / thirdNumber);
     } else {
-      setError("You must chek min. 2 input");
+      setError("You must chek min. 2 input of Number");
     }
   };
 
@@ -173,8 +173,8 @@ function App() {
                 </div>
               </div>
               {error !== "" ? (
-                <div className='col-span-5 mt-2 text-center'>
-                  <p className='text-red-600'>{error}</p>
+                <div className='col-span-5 mt-2 text-center' >
+                  <p className='text-red-600' data-testid='error'>{error}</p>
                 </div>
               ) : (
                 ""
