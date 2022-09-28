@@ -24,7 +24,7 @@ function App() {
     } else if (firstCheck && thirdCheck) {
       setResult(firstNumber + thirdNumber);
     } else {
-      setError("You must chek min. 2 input");
+      setError("You must check min. 2 input of Number");
     }
   };
   const calculateSubstract = ()=> {
