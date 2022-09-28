@@ -27,7 +27,7 @@ function App() {
       setError("You must check min. 2 input of Number");
     }
   };
-  const calculateSubstract = ()=> {
+  const calculateSubstract = () => {
     setError("");
     if (firstCheck && secondCheck && thirdCheck) {
       setResult(firstNumber - secondNumber - thirdNumber);
@@ -83,11 +83,12 @@ function App() {
                   type='number'
                   name='firstNumber'
                   id='firstNumber'
+                  data-testid='firstNumber'
                   autoComplete='off'
                   autoFocus
                   value={firstNumber}
                   onChange={(e) => setFirstNumber(e.target.value)}
-                  placeholder="Input your first number"
+                  placeholder='Input your first number'
                   className='mt-1 font-mono focus:ring-gray-500 focus:border-gray-500 block w-full shadow-sm sm:text-sm border-zinc-300 rounded-md disabled:bg-slate-50 drop-shadow-md'
                 />
               </div>
@@ -95,9 +96,10 @@ function App() {
                 <div className='relative mt-3'>
                   <div className='flex justify-center'>
                     <input
-                      id='remember-me'
-                      name='remember-me'
                       type='checkbox'
+                      id='firstCheck'
+                      data-testid='firstCheck'
+                      name='firstCheck'
                       defaultChecked={firstCheck}
                       onClick={() => {
                         setFirstCheck(!firstCheck);
@@ -113,10 +115,11 @@ function App() {
                   type='number'
                   name='secondNumber'
                   id='secondNumber'
+                  data-testid='secondNumber'
                   autoComplete='off'
                   value={secondNumber}
                   onChange={(e) => setSecondNumber(e.target.value)}
-                  placeholder="Input your second number"
+                  placeholder='Input your second number'
                   className='mt-1 font-mono focus:ring-gray-500 focus:border-gray-500 block w-full shadow-sm sm:text-sm border-zinc-300 rounded-md disabled:bg-slate-50 drop-shadow-md'
                 />
               </div>
@@ -124,9 +127,10 @@ function App() {
                 <div className='relative mt-3'>
                   <div className='flex justify-center'>
                     <input
-                      id='remember-me'
-                      name='remember-me'
                       type='checkbox'
+                      id='secondCheck'
+                      data-testid='secondCheck'
+                      name='secondCheck'
                       defaultChecked={secondCheck}
                       onClick={() => {
                         setSecondCheck(!secondCheck);
@@ -142,10 +146,11 @@ function App() {
                   type='number'
                   name='thirdNumber'
                   id='thirdNumber'
+                  data-testid='thirdNumber'
                   autoComplete='off'
                   value={thirdNumber}
                   onChange={(e) => setThirdNumber(e.target.value)}
-                  placeholder="Input your third number"
+                  placeholder='Input your third number'
                   className='mt-1 font-mono focus:ring-gray-500 focus:border-gray-500 block w-full shadow-sm sm:text-sm border-zinc-300 rounded-md disabled:bg-slate-50 drop-shadow-md'
                 />
               </div>
@@ -153,9 +158,10 @@ function App() {
                 <div className='relative mt-3'>
                   <div className='flex justify-center'>
                     <input
-                      id='remember-me'
-                      name='remember-me'
                       type='checkbox'
+                      id='thirdCheck'
+                      data-testid='thirdCheck'
+                      name='thirdCheck'
                       defaultChecked={thirdCheck}
                       onClick={() => {
                         setThirdCheck(!thirdCheck);
@@ -178,24 +184,28 @@ function App() {
           <div className='px-4 pt-5 pb-8 text-center sm:px-6'>
             <button
               type='button'
+              data-testid='calculateSum'
               className='inline-flex justify-center py-2 px-4 mx-2 border border-transparent shadow-sm text-sm font-bold rounded-md text-white bg-gray-500 hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 disabled:bg-gray-50'
               onClick={() => calculateSum()}>
               +
             </button>
             <button
               type='button'
+              data-testid='calculateSubstract'
               className='inline-flex justify-center py-2 px-4 mx-2 border border-transparent shadow-sm text-sm font-bold rounded-md text-white bg-gray-500 hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 disabled:bg-gray-50'
               onClick={() => calculateSubstract()}>
               -
             </button>
             <button
               type='button'
+              data-testid='calculateTimes'
               className='inline-flex justify-center py-2 px-4 mx-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-gray-500 hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 disabled:bg-gray-50'
               onClick={() => calculateTimes()}>
               x
             </button>
             <button
               type='button'
+              data-testid='calculateDivide'
               className='inline-flex justify-center py-2 px-4 mx-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-gray-500 hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 disabled:bg-gray-50'
               onClick={() => calculateDivide()}>
               /
@@ -204,7 +214,9 @@ function App() {
         </div>
 
         <div className='max-w-lg mx-auto my-10 bg-gray-200 rounded-lg shadow-lg font-mono'>
-          <div className='px-4 py-5 sm:px-6 text-right text-gray-600 text-xl font-extrabold'>
+          <div
+            className='px-4 py-5 sm:px-6 text-right text-gray-600 text-xl font-extrabold'
+            data-testid='result'>
             {result}
           </div>
         </div>
