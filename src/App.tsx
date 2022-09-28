@@ -18,11 +18,11 @@ function App() {
     if (firstCheck && secondCheck && thirdCheck) {
       setResult(parseInt(firstNumber) + parseInt(secondNumber) + parseInt(thirdNumber));
     } else if (firstCheck && secondCheck) {
-      setResult(firstNumber + secondNumber);
+      setResult(parseInt(firstNumber) + parseInt(secondNumber));
     } else if (secondCheck && thirdCheck) {
-      setResult(secondNumber + thirdNumber);
+      setResult(parseInt(secondNumber) + parseInt(thirdNumber));
     } else if (firstCheck && thirdCheck) {
-      setResult(firstNumber + thirdNumber);
+      setResult(parseInt(firstNumber) + parseInt(thirdNumber));
     } else {
       setError("You must check min. 2 input of Number");
     }
